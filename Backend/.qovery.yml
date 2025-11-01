@@ -1,0 +1,15 @@
+---
+application:
+  name: "backend"
+  project: "Invent"
+  organization: "QoveryCommunity"
+databases:
+- type: "MYSQL"
+  name: "sysvent"
+  version: "8.0"
+routers:
+- name: "main-backend"
+  routes:
+  - application_name: "backend"
+    paths:
+    - "/*"
