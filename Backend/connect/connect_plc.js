@@ -4,19 +4,10 @@ var colors = require('colors')
 const { Console } = require('console')
 
 const sql = new pg.Pool({
-    host: '192.168.0.132', 
-    database: 'velox',
-    user: 'velox',
-    password: 'velox23',
-
-//    host: '10.90.135.130',
- //   database: 'sysvent',
- //   user: 'sysvent',
- //   password: 'velox@Sysvent',    
-//    host: '127.0.0.1',
-//    database: 'SYSVENT',
-//    user: 'postgres',
-//    password: '2021@Sysvent',    
+    host: '127.0.0.1',
+    database: 'postgres',
+    user: 'postgres',
+    password: 'Sysvent@2021',    
     port: 5432,
 })
 
@@ -68,14 +59,10 @@ sql.connect()
                         sql.connect()
                         .then(client => {
                             // Stored procedure
-                            return client.query(`SELECT resultado FROM public."SP_ENVIA_DESTINO_SORTER_MARAVILHA"('${data_sub}')`)
+                            return client.query(`SELECT resultado FROM public."SP_ENVIA_DESTINO_SORTER"('${data_sub}')`)
                             .then(result => { 
-                              //  dados = result.rows[0].resultado
                                 dados = result.rows[0].resultado
-                               
                                 dados_novo = dados.toString().substr(0,99)
-                               
-                               // dados_novo = cabecalho+';'+sequencia+';'+tipo+';'+etiqueta+';'+saida+';'+sequencia+rodape
 
                                 client.release()
                                 var dataAtual = new Date();
@@ -91,7 +78,6 @@ sql.connect()
     
 
                                 if ((dados.toString().substr(0,5) != 'VAZIO')) {
- //                                   PLC.write (dados)
                                     PLC.write (dados_novo + '\r' )
                                     sql.connect()
                                     .then(client => {

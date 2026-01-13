@@ -12,8 +12,8 @@
 						<div class="vx-col sm:w-full md:w-full lg:w-1/2 d-theme-dark-bg">
 							<div class="p-8 login-tabs-container">
 								<div class="vx-card__title mb-4">
-									<h4 class="mb-4">Login</h4>
-									<p>Bem-vindo! Faça o Login.</p>
+									<h4 class="mb-4">Login - Candelária</h4>
+									<p>Bem-vindo ao Sistema Candelária! Faça o Login.</p>
 								</div>						
 								<div class="">
 									<vs-input
